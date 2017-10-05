@@ -1,8 +1,9 @@
 #!/usr/bin/env python
-import os
-import sys
 from django.core.management import execute_from_command_line
 from __future__ import unicode_literals, absolute_import
+import os
+import sys
+
 try:
     from . import settings # Assumed to be in the same directory.
 except ImportError:
