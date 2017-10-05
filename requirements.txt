@@ -1,5 +1,5 @@
 Django==1.11.5
-django-webodt==0.3.2
+-e git://github.com/PSotoEnriquez/django-webodt.git#egg=django-webodt
 lxml==4.0.0
 pluggy==0.5.2
 py==1.4.34
