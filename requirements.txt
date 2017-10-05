@@ -1,0 +1,10 @@
+Django==1.11.5
+django-webodt==0.3.2
+lxml==4.0.0
+pluggy==0.5.2
+py==1.4.34
+pytz==2017.2
+six==1.11.0
+tox==2.9.1
+tox-travis==0.8
+virtualenv==15.1.0
