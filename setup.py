@@ -15,7 +15,7 @@ setup(
     packages=find_packages(),
     url='http://github.com/netangels/django-webodt',
     license='BSD License',
-    description=u'ODF template handler and odt to html, pdf, doc, etc converter',
+    description='ODF template handler and odt to html, pdf, doc, etc converter',
     long_description=README,
     install_requires=[
         'Django>=1.9.2',

@@ -90,19 +90,19 @@ def xmlfor_preprocessor(template_content):
         ancestor_tag = _find_common_ancestor(start_tag, end_tag)
 
         # before
-        for_text = u'{%% for%s%%}' % forloop_clause
+        for_text = '{%% for%s%%}' % forloop_clause
         prev_tag = ancestor_tag.getprevious()
         if prev_tag is not None:
             prev_tail = prev_tag.tail or ''
-            prev_tag.tail = u'%s%s' % (prev_tail, for_text)
+            prev_tag.tail = '%s%s' % (prev_tail, for_text)
         else:
             parent_tag = ancestor_tag.getparent()
             parent_text = parent_tag.text or ''
-            parent_tag.text = u'%s%s' % (parent_text, for_text)
+            parent_tag.text = '%s%s' % (parent_text, for_text)
 
         # after
         ancestor_tail = ancestor_tag.tail or ''
-        ancestor_tag.tail = u'%s%s' % (u'{% endfor %}', ancestor_tail)
+        ancestor_tag.tail = '%s%s' % ('{% endfor %}', ancestor_tail)
     # return _tree_to_string(tree)
     return etree.tostring(tree)  # may be needed
 

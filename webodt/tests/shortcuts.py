@@ -1,7 +1,7 @@
 # -*- coding: utf8 -*-
 from django.conf import settings
 from django.test.client import Client
-from django.utils import unittest
+import unittest
 from webodt.shortcuts import render_to, render_to_response
 from django.core.urlresolvers import reverse
 
