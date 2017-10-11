@@ -16,7 +16,8 @@ class UnescapeTemplatetagsTest(unittest.TestCase):
             '{% if balance &gt; 10.00 %}{{ &quot;profit!&quot; }}{% endif %}'
             '{% endif %}'
         )
-        self.assertEqual(content,
+        # added decode() to transform from string byte to str
+        self.assertEqual(content.decode(),
             '{% if user == "John Doe" %}&lt;'
             '{% if balance > 10.00 %}{{ "profit!" }}{% endif %}'
             '{% endif %}'
@@ -29,7 +30,7 @@ class UnescapeTemplatetagsTest(unittest.TestCase):
         context = {'user': 'John Doe'}
         document = template.render(Context(context))
         self.assertTrue(
-            'Unescape templatetags works!' in document.get_content_xml()
+            b'Unescape templatetags works!' in document.get_content_xml()
         )
         document.delete()
 
@@ -49,7 +50,9 @@ class XMLForTest(unittest.TestCase):
                 <td>{{ user.balance }}</td>
             </tr>{% endfor %}
         </table>'''
-        output_template = xmlfor_preprocessor(input_template)
+        output_template = xmlfor_preprocessor(input_template) 
+        # to convert from string byte to str
+        output_template = output_template.decode()
         self.assertEqual(output_template, expected_output_template)
 
     def test_tail_xmlfor_preprocessor(self):
@@ -66,6 +69,8 @@ class XMLForTest(unittest.TestCase):
             </tr>{% endfor %}
         </table>'''
         output_template = xmlfor_preprocessor(input_template)
+        # to convert from string byte to str
+        output_template = output_template.decode()
         self.assertEqual(output_template, expected_output_template)
 
     def test_find_common_ancestor(self):

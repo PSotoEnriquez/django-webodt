@@ -44,8 +44,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'django-webodt'
-copyright = '2010-2011, NetAngels team'
+project = u'django-webodt'
+copyright = u'2010-2011, NetAngels team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -182,8 +182,8 @@ htmlhelp_basename = 'django-webodtdoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'django-webodt.tex', 'django-webodt Documentation',
-   'NetAngels team', 'manual'),
+  ('index', 'django-webodt.tex', u'django-webodt Documentation',
+   u'NetAngels team', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -215,6 +215,6 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'django-webodt', 'django-webodt Documentation',
-     ['NetAngels team'], 1)
+    ('index', 'django-webodt', u'django-webodt Documentation',
+     [u'NetAngels team'], 1)
 ]

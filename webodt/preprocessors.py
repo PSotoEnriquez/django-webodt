@@ -20,7 +20,10 @@ def list_preprocessors(preprocessors):
 
 
 def unescape_templatetags_preprocessor(template_content):
-    template_content = template_content.decode('utf-8')
+    try:
+        template_content = template_content.decode()
+    except AttributeError:
+        pass
     replace_map = [
         ('&quot;', '"'),
         ('&lt;', '<'),
@@ -28,7 +31,7 @@ def unescape_templatetags_preprocessor(template_content):
         ('&amp;', '&'),
     ]
     for from_sym, to_sym in replace_map:
-        for include_text in re.findall(r'{%(.+?)%}', template_content):
+        for include_text in re.findall(r"{%(.+?)%}", template_content):
             new_include_text = include_text.replace(from_sym, to_sym)
             template_content = template_content.replace(
                 '{%%%s%%}' % include_text, '{%%%s%%}' % new_include_text

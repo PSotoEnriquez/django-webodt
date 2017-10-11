@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.template import Context
-from django.utils import unittest
+import unittest
 from webodt.converters.abiword import AbiwordODFConverter
 from webodt.converters.googledocs import GoogleDocsODFConverter
 from webodt.converters.openoffice import OpenOfficeODFConverter
@@ -42,7 +42,7 @@ class ODFDocumentTest(unittest.TestCase):
         }
         document = template.render(Context(context))
         self.assertTrue(os.path.isfile(document.name))
-        self.assertEqual(os.stat(document.name).st_mode & 0o777, 0o600)
+        self.assertEqual((os.stat(document.name).st_mode & 0o777), 0o600)
         self.assertEqual(document.format, 'odt')
         self.assertTrue('John Doe' in document.get_content_xml())
         document.delete()
