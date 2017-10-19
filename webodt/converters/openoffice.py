@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import uno
-import unohelper
+import unotools
 from com.sun.star.beans import PropertyValue
 from com.sun.star.io import IOException, XOutputStream, XSeekable, XInputStream
 from webodt import Document

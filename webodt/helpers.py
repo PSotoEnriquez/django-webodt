@@ -24,7 +24,7 @@ def guess_format_and_filename(filename, format):
     @return: tuple of strings (filename, format)
     """
     # filename is defined, format is undefined
-    if filename and '.' in filename and not format:
+    if str(filename) and str('.') in str(filename) and not format:
         format = filename.split('.')[-1]
     # format is undefined
     if not format:

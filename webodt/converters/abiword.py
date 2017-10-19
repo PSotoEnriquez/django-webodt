@@ -15,6 +15,7 @@ class AbiwordODFConverter(ODFConverter):
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE
         )
         args = (document.name, output_filename, format)
-        process.communicate('convert %s %s %s\n' % args)
+        cad = 'convert %s %s %s\n' % args
+        process.communicate(cad.encode('utf-8'))
         fd = Document(output_filename, mode='r', delete_on_close=delete_on_close)
         return fd

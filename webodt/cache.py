@@ -25,7 +25,7 @@ class CacheManager(object):
         # with open(filename, 'w') as fd:
         with open(filename, 'wb') as fd:
             document.seek(0)
-            fd.write(document.read())
+            fd.write(self, document.read())
 
     def delete(self, odf_document, format):
         filename = self.get_filename(odf_document, format)
